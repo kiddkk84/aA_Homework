@@ -40,3 +40,34 @@ class Queue
     end 
 
 end 
+
+class Map
+
+  def initialize
+    @inventory = [] 
+  end 
+
+  def set(key, value)
+   @inventory.each do |el| 
+     if el[0] == key
+        el[1] = value
+     else 
+      @inventory << [key, value]
+     end 
+    end 
+  end 
+
+
+  def get(key)
+    @inventory.each {|el| return el[1] if el[0] == key}
+    nil
+  end  
+
+  def delete(key)
+    @inventory.each_with_index {|el,i| @inventory.delete_at(i) if el[0] == key}
+  end 
+
+  def show 
+  end 
+
+end 
